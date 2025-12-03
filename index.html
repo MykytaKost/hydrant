@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACHTPAC-CAPTCHA</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="logoHydrant">
+            <a href=""><img src="./logo/hydrant-svgrepo-com.svg" alt="HYDRANT" id="hydrant"></a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+        <div class="captcha-header">
+            <h1>Wybierz wszystkie obrazy z <span>hydrantem</span></h1>
+        </div>
+        
+        <div class="message" id="message"></div>
+        <div class="attempts" id="attempts"></div>
+        
+        <div class="imageCaptcha">
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1504197618410-e1f35e78a2ff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" data-correct="false">
+                <img src="https://images.unsplash.com/photo-1597854779671-0f0be8e8fca6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1749" data-correct="false">
+                <img src="https://images.unsplash.com/photo-1695498700569-ac5b46502b9b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=685" data-correct="false">
+                <img src="https://images.unsplash.com/photo-1702673924303-dce594e2e45a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735" data-correct="false">
+                <img src="https://images.unsplash.com/photo-1583228904017-c59421ab1022?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=685" data-correct="false">
+                <img src="https://images.unsplash.com/photo-1600384851704-caa012bbb25d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332" data-correct="false">
+                <img src="https://images.unsplash.com/photo-1641443085957-c250073531b9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" data-correct="false">
+                <img src="https://images.unsplash.com/photo-1575414481522-f0fdc06f79fd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" data-correct="false">
+                <img src="https://i.redd.it/minecraft-roads-v0-coe6sjnbdbee1.jpg?width=720&format=pjpg&auto=webp&s=8bdd69d301e42c2005488baf2c0aa80fe66d40d4" data-correct="false">
+            </div>
+        </div>
+
+        <div class="captcha-footer">
+            <div class="recaptcha-logo">
+                <div class="logo-img">r</div>
+                <span>reCAPTCHA</span>
+            </div>
+            <div class="button-group">
+                <button class="btn-icon" title="Nowy zestaw obrazów" onclick="skipCaptcha()">↻</button>
+                <button class="btn-icon" title="Informacje" onclick="showInfo()">ℹ️</button>
+                <button class="verify-btn" onclick="verifyCaptcha()">Sprawdź</button>
+            </div>
+        </div>
+
+         <div class="container" style="margin-top: 20px;">
+        <div class="captcha-header">
+            <h1>Wpisz wykręcony tekst</h1>
+        </div>
+
+        <div class="task">
+            Przepisz <strong>dokładnie</strong> tekst, który widzisz poniżej
+        </div>
+
+        <div class="message" id="textMessage"></div>
+
+        <div class="text-captcha">
+            <div class="captcha-display">
+                <canvas id="captchaCanvas" width="300" height="80"></canvas>
+            </div>
+            
+            <div class="captcha-input-group">
+                <input type="text" id="captchaInput" placeholder="Wpisz tekst z obrazu" maxlength="6">
+            </div>
+        </div>
+
+        <div class="captcha-footer">
+            <div class="recaptcha-logo">
+                <div class="logo-img">r</div>
+                <span>reCAPTCHA</span>
+            </div>
+            <div class="button-group">
+                <button class="btn-icon" title="Nowy tekst" onclick="generateTextCaptcha()">↻</button>
+                <button class="btn-icon" title="Audio" onclick="alert('Funkcja audio niedostępna w demo')">🔊</button>
+                <button class="verify-btn" onclick="verifyTextCaptcha()">Sprawdź</button>
+            </div>
+        </div>
+        
+    </div>
+    </main>
+    <footer></footer>
+    <script src="./main.js"></script>
+</body>
+</html>

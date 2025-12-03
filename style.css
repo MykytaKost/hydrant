@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f9f9f9;
+  min-height: 100vh;
+}
+
+main {
+  padding-top: 20px;
+}
+
+.container {
+  background: white;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
+.container:not(:first-child) {
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+.captcha-header {
+  background: #4285f4;
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.captcha-header .icon {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.captcha-header h1 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.task {
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+.task strong {
+  font-weight: 600;
+}
+
+.imageCaptcha {
+  padding: 0;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: #e0e0e0;
+  padding: 2px;
+}
+.image-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  position: relative;
+  display: block;
+  border: none;
+}
+.image-grid img:hover {
+  opacity: 0.8;
+}
+.image-grid img.selected {
+  outline: 3px solid #4285f4;
+  outline-offset: -3px;
+  opacity: 0.9;
+}
+
+.text-captcha {
+  padding: 20px;
+  background: #fafafa;
+}
+
+.captcha-display {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#captchaCanvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.captcha-input-group {
+  display: flex;
+  gap: 8px;
+}
+
+#captchaInput {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  font-size: 16px;
+  font-family: monospace;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+#captchaInput:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.1);
+}
+
+.captcha-footer {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.recaptcha-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #999;
+}
+.recaptcha-logo .logo-img {
+  width: 16px;
+  height: 16px;
+  background: #4285f4;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  transition: background 0.2s;
+  color: #666;
+}
+.btn-icon:hover {
+  background: #e8e8e8;
+}
+
+.verify-btn {
+  padding: 8px 24px;
+  background: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.verify-btn:hover {
+  background: #3367d6;
+}
+.verify-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.message {
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  display: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+.message.success {
+  background: #d4edda;
+  color: #155724;
+}
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.info-text {
+  padding: 12px 20px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.logoHydrant {
+  text-align: start;
+  padding: 10px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background: white;
+}
+.logoHydrant a {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.logoHydrant a:hover {
+  transform: scale(1.05);
+}
+.logoHydrant #hydrant {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */
