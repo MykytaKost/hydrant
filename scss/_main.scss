@@ -1,61 +1,6 @@
-// Variables
-$primary-color: #4285f4;
-$primary-hover: #3367d6;
-$success-bg: #d4edda;
-$success-text: #155724;
-$error-bg: #f8d7da;
-$error-text: #721c24;
-
-$border-color: #d3d3d3;
-$border-light: #e0e0e0;
-$bg-light: #f9f9f9;
-$bg-lighter: #fafafa;
-$bg-gray: #f5f5f5;
-
-$text-primary: #333;
-$text-secondary: #666;
-$text-muted: #999;
-
-$border-radius-small: 2px;
-$border-radius-medium: 4px;
-$border-radius-large: 8px;
-
-$transition-fast: 0.2s;
-$transition-medium: 0.3s;
-
-// Mixins
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin button-reset {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-@mixin transition($property: all) {
-  transition: $property $transition-fast;
-}
-
-// Base Styles
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  background: $bg-light;
-  min-height: 100vh;
-}
-
 // main 
 main {
-  padding-top: 20px;
+  padding-top: 70px;
 }
 // Container
 .container {
@@ -193,7 +138,6 @@ main {
     box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
   }
 }
-
 // Footer
 .captcha-footer {
   padding: 16px 20px;
@@ -294,28 +238,3 @@ main {
   background: $bg-gray;
 }
 
-// Logo Hydrant
-.logoHydrant {
-  text-align: start;
-  padding: 10px;
-  position: fixed;
-  z-index: 1000 ;
-  width: 100%;
-  background: white;
-
-  a {
-    display: inline-block;
-    text-decoration: none;
-    @include transition(transform);
-
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-
-  #hydrant {
-    width: 50px;
-    height: 50px;
-    display: block; 
-  }
-}

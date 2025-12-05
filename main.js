@@ -80,12 +80,6 @@ function skipCaptcha() {
     document.getElementById('message').style.display = 'none';
 }
 
-// Pokazuje lub ukrywa tekst informacyjny
-function showInfo() {
-    const infoText = document.getElementById('infoText');
-    infoText.style.display = infoText.style.display === 'none' ? 'block' : 'none';
-}
-
 // TEXT CAPTCHA
 function generateRandomCode(length = 6) {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';

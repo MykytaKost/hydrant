@@ -1,0 +1,16 @@
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-reset {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+@mixin transition($property: all) {
+  transition: $property $transition-fast;
+}
